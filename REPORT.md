@@ -8,21 +8,21 @@ This app is for anybody who has to deal with the press/public in an environment 
 
 ### Iterations (≥3 versions, ~75–150 words each). One labeled subsection per version (V1, V2, V3, …). Each subsection must contain, in this order:
 
-### V1
+### V1: First prompt
 
 #### Change: what you changed (prompt, model, retrieval, controls, etc.).
 #### Motivating example: the specific failing case from your eval set that drove the change.
 #### Delta: metric before → after on the same eval set (positive or negative — both are fine if explained).
 #### Conclusion: why the metric moved (or didn't), and what you'd try next.
 
-### V2
+### V2: Refining the Look
 
 #### Change: 
 #### Motivating example: 
 #### Delta: 
 #### Conclusion: 
 
-### V3
+### V3: Reaching the MVP
 
 #### Change:
 #### Motivating example: 

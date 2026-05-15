@@ -1,0 +1,170 @@
+[
+  {
+    "id": 1,
+    "description": "Referee blame after loss — risk phrases fully removed, topic retained",
+    "input": "The refs completely robbed us tonight. That last call was absolute garbage and cost us the game.",
+    "call1_risk": {
+      "flaggedPhrases": ["robbed us", "absolute garbage", "cost us the game"],
+      "riskFactors": ["blaming officials", "inflammatory language"],
+      "severityLevel": "high",
+      "potentialHeadlines": ["Star player blasts refs after loss"]
+    },
+    "call2_translation": "We're disappointed with how the game ended. There were some calls we disagreed with, but we need to focus on our own execution going forward.",
+    "topicKeywords": ["game", "calls", "focus"],
+    "expectedPass": true
+  },
+  {
+    "id": 2,
+    "description": "Teammate criticism — risk phrases removed but topic retained",
+    "input": "Honestly, some guys on this team just don't want to put in the work. They're lazy and it shows.",
+    "call1_risk": {
+      "flaggedPhrases": ["don't want to put in the work", "lazy"],
+      "riskFactors": ["public teammate criticism", "locker room division"],
+      "severityLevel": "high",
+      "potentialHeadlines": ["Player calls teammates lazy in shocking rant"]
+    },
+    "call2_translation": "We're working on building a stronger collective effort. Everyone needs to raise their level of commitment, and I include myself in that.",
+    "topicKeywords": ["effort", "commitment", "team"],
+    "expectedPass": true
+  },
+  {
+    "id": 3,
+    "description": "Contract dispute — risk phrases removed, topic retained",
+    "input": "I'm underpaid and disrespected by this organization. They don't value me at all.",
+    "call1_risk": {
+      "flaggedPhrases": ["underpaid", "disrespected", "don't value me"],
+      "riskFactors": ["contract grievance aired publicly", "organizational conflict"],
+      "severityLevel": "high",
+      "potentialHeadlines": ["Player demands trade after calling team disrespectful"]
+    },
+    "call2_translation": "My focus is on performing at the highest level. Contract discussions are handled privately between my representatives and the organization.",
+    "topicKeywords": ["contract", "organization", "focus"],
+    "expectedPass": true
+  },
+  {
+    "id": 4,
+    "description": "Injury excuse — risk phrases removed, topic retained",
+    "input": "I've been playing hurt for weeks and nobody cares. The training staff is incompetent.",
+    "call1_risk": {
+      "flaggedPhrases": ["nobody cares", "incompetent"],
+      "riskFactors": ["attacking staff publicly", "injury disclosure"],
+      "severityLevel": "medium",
+      "potentialHeadlines": ["Player slams training staff as incompetent"]
+    },
+    "call2_translation": "I've been managing some physical challenges, and I'm working closely with our medical team to get back to full strength.",
+    "topicKeywords": ["injury", "medical", "physical"],
+    "expectedPass": true
+  },
+  {
+    "id": 5,
+    "description": "Coach criticism — risk phrases removed, topic retained",
+    "input": "The coach has no idea what he's doing. His game plans are a joke and we're all suffering for it.",
+    "call1_risk": {
+      "flaggedPhrases": ["no idea what he's doing", "a joke", "suffering for it"],
+      "riskFactors": ["public coach criticism", "undermining leadership"],
+      "severityLevel": "high",
+      "potentialHeadlines": ["Player publicly undermines head coach"]
+    },
+    "call2_translation": "We're in a challenging stretch and we're working through our system together. I have full confidence in our coaching staff's process.",
+    "topicKeywords": ["coaching", "system", "process"],
+    "expectedPass": true
+  },
+  {
+    "id": 6,
+    "description": "FAIL — flagged phrase 'robbed' still present in translation",
+    "input": "The refs robbed us of a win tonight.",
+    "call1_risk": {
+      "flaggedPhrases": ["robbed us", "robbed"],
+      "riskFactors": ["blaming officials"],
+      "severityLevel": "medium",
+      "potentialHeadlines": ["Player says refs robbed team"]
+    },
+    "call2_translation": "We feel we were robbed of a fair outcome tonight, but we'll move on.",
+    "topicKeywords": ["refs", "outcome"],
+    "expectedPass": false
+  },
+  {
+    "id": 7,
+    "description": "Trade demand — risk phrases removed, topic retained",
+    "input": "I want out of here. This city and this team are holding me back from winning a championship.",
+    "call1_risk": {
+      "flaggedPhrases": ["want out", "holding me back"],
+      "riskFactors": ["public trade demand", "alienating fanbase"],
+      "severityLevel": "high",
+      "potentialHeadlines": ["Superstar demands trade in bombshell statement"]
+    },
+    "call2_translation": "I'm fully committed to this team right now. My goal is to compete for a championship, and I believe we can build toward that here.",
+    "topicKeywords": ["championship", "team", "committed"],
+    "expectedPass": true
+  },
+  {
+    "id": 8,
+    "description": "Gambling reference — risk phrases removed, topic retained",
+    "input": "I bet on myself every single game. Sometimes I literally put money on it.",
+    "call1_risk": {
+      "flaggedPhrases": ["bet on myself", "put money on it"],
+      "riskFactors": ["gambling implication", "league policy violation risk"],
+      "severityLevel": "high",
+      "potentialHeadlines": ["Player hints at gambling on own games"]
+    },
+    "call2_translation": "I have complete confidence in my abilities and I approach every game with full commitment and intensity.",
+    "topicKeywords": ["confidence", "game", "commitment"],
+    "expectedPass": true
+  },
+  {
+    "id": 9,
+    "description": "FAIL — topic keyword missing from translation",
+    "input": "Our defense was terrible tonight. We gave up way too many easy baskets.",
+    "call1_risk": {
+      "flaggedPhrases": ["terrible", "way too many easy baskets"],
+      "riskFactors": ["self-criticism that invites media pile-on"],
+      "severityLevel": "low",
+      "potentialHeadlines": ["Player admits defense was terrible"]
+    },
+    "call2_translation": "We have areas to improve and we'll address them in practice this week.",
+    "topicKeywords": ["defense", "baskets"],
+    "expectedPass": false
+  },
+  {
+    "id": 10,
+    "description": "Opponent disrespect — risk phrases removed, topic retained",
+    "input": "That team is trash. We should have beaten them by 30 and we let them hang around.",
+    "call1_risk": {
+      "flaggedPhrases": ["trash", "should have beaten them by 30"],
+      "riskFactors": ["disrespecting opponent", "bulletin board material"],
+      "severityLevel": "medium",
+      "potentialHeadlines": ["Player calls rival team trash ahead of rematch"]
+    },
+    "call2_translation": "We respect every opponent we face. Tonight we didn't execute the way we're capable of, and that's on us.",
+    "topicKeywords": ["opponent", "execute", "respect"],
+    "expectedPass": true
+  },
+  {
+    "id": 11,
+    "description": "Substance reference — risk phrases removed, topic retained",
+    "input": "I needed a drink after that loss. Maybe a few drinks. It was that bad.",
+    "call1_risk": {
+      "flaggedPhrases": ["needed a drink", "a few drinks"],
+      "riskFactors": ["substance reference", "unprofessional image"],
+      "severityLevel": "medium",
+      "potentialHeadlines": ["Athlete jokes about drinking after tough loss"]
+    },
+    "call2_translation": "That was a tough loss and we're all feeling it. We'll regroup, watch film, and come back stronger.",
+    "topicKeywords": ["loss", "regroup", "film"],
+    "expectedPass": true
+  },
+  {
+    "id": 12,
+    "description": "FAIL — flagged phrase 'lazy' still present in translation",
+    "input": "Some players on this roster are just lazy and don't deserve to be here.",
+    "call1_risk": {
+      "flaggedPhrases": ["lazy", "don't deserve to be here"],
+      "riskFactors": ["teammate criticism", "locker room damage"],
+      "severityLevel": "high",
+      "potentialHeadlines": ["Player calls teammates lazy in locker room bombshell"]
+    },
+    "call2_translation": "We need more effort from everyone. Some guys have been lazy in practice and it's affecting our games.",
+    "topicKeywords": ["effort", "practice"],
+    "expectedPass": false
+  }
+]
