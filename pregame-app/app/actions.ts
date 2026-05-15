@@ -18,12 +18,12 @@ export async function runPressConferencePipeline(
   const { object: risk } = await generateObject({
     model: openai("gpt-4o"),
     schema: riskSchema,
-    prompt: `Analyze this raw athlete/coach statement for reputational and media risk. Identify specific flagged phrases, explain each risk factor, assign an overall severity, and generate example negative headlines the media could run with this.\n\nStatement: "${rawInput}"`,
+    prompt: `Analyze this raw athlete/coach statement for reputational and media risk. Identify the exact verbatim problematic phrases (flaggedPhrases), explain each risk factor, assign an overall severity, and generate example negative headlines the media could run with this. Only flag phrases that are genuinely harmful — do not over-flag neutral topic words like "game", "team", "coach", or "defense".\n\nStatement: "${rawInput}"`,
   });
 
   const { text: refinedStatement } = await generateText({
     model: openai("gpt-4o"),
-    prompt: `You are a professional sports PR consultant. Rewrite this statement to be press-conference-ready. You must retain the core message and topic, but eliminate every risk factor and flagged phrase identified in the risk assessment. Output only the refined statement.\n\nOriginal statement: "${rawInput}"\n\nRisk assessment:\n- Flagged phrases: ${risk.flaggedPhrases.join(", ")}\n- Risk factors: ${risk.riskFactors.join("; ")}\n- Severity: ${risk.severityLevel}`,
+    prompt: `You are a professional sports PR consultant. Rewrite this statement to be press-conference-ready. Follow these rules strictly:\n1. Do NOT include any of the flagged phrases — not even partial matches or synonyms that carry the same meaning.\n2. You MUST reference the same subject matter (e.g. if the original is about defense, mention defense; if about coaching, mention coaching; if about contracts, mention contracts).\n3. Keep the tone professional and constructive.\n4. Output only the refined statement — no preamble, no explanation.\n\nOriginal statement: "${rawInput}"\n\nFlagged phrases to remove entirely: ${risk.flaggedPhrases.join(", ")}\nRisk factors: ${risk.riskFactors.join("; ")}\nSeverity: ${risk.severityLevel}`,
   });
 
   const { text: reporterRaw } = await generateText({

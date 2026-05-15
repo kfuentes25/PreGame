@@ -10,23 +10,28 @@ This app is for anybody who has to deal with the press/public in an environment 
 
 ### V1: First prompt
 
+#### Change: This was the first version of the product. I implemented the prompt for the web app and made it so that Kiro can make something to start.
+#### Motivating example: There was no specific failiing case from my eval set that drove the change but i did want to make it clear what my goals were for the project and how the AI should approach implementing it and it asked clarifying questions in order to get closer to what I wanted.
+#### Delta: positive. This is only because I went from having nothing to having a webapp and moved forward from there. I could also say negative as I dont know how the AI is going to perform yet and then ill grade the eval metric performance. 
+#### Conclusion: The metric moved forward and what I'm going to try next is testing the AI and how well it performs based off of my understanding of the evaluation metric. 
+
+### V2: Refining the Look
+
+#### Change: The change came to the appearance of the app. The UI was primitive and made the app look ancient and i made it look better.
+#### Motivating example: The look was very ugly. looked like an old website with times new roman font and things of the like with ugly colors. Also didnt show the risk factors or output in a way i liked
+#### Delta: Positive. Made the look more appealing and showed the risk factors in a nicer way
+#### Conclusion: The metric moved forward as the output and risk factors are looking good
+
 #### Change: what you changed (prompt, model, retrieval, controls, etc.).
 #### Motivating example: the specific failing case from your eval set that drove the change.
 #### Delta: metric before → after on the same eval set (positive or negative — both are fine if explained).
 #### Conclusion: why the metric moved (or didn't), and what you'd try next.
 
-### V2: Refining the Look
-
-#### Change: 
-#### Motivating example: 
-#### Delta: 
-#### Conclusion: 
-
 ### V3: Reaching the MVP
 
-#### Change:
-#### Motivating example: 
-#### Delta: 
+#### Change: Last change was that the output was not good enough. so I refined the prompts that it gave the AI so that it passed the test cases
+#### Motivating example: eval metric wasnt being reached and i wanted it to be reached for at least 10 test cases
+#### Delta: Negative
 #### Conclusion:
 
 ### Code walkthrough (200–300 words). Trace one user action through your code with file:line references. Explain one design decision and one alternative you considered and rejected. Generic "this calls the API" descriptions don't earn full credit.
